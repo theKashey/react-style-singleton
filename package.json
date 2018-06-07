@@ -1,0 +1,53 @@
+{
+  "name": "react-style-singleton",
+  "version": "1.0.1",
+  "description": "Just create a single stylesheet...",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "ts-react-toolbox dev",
+    "bootstrap": "ts-react-toolbox init",
+    "test": "ts-react-toolbox test",
+    "test:ci": "ts-react-toolbox test --runInBand --coverage",
+    "test:size": "size-limit",
+    "build": "ts-react-toolbox build",
+    "release": "ts-react-toolbox release",
+    "prepublishOnly": "yarn build",
+    "lint": "ts-react-toolbox lint",
+    "static": "ts-react-toolbox publish",
+    "typecheck:flow": "flow check",
+    "format": "ts-react-toolbox format",
+    "analyze": "ts-react-toolbox analyze"
+  },
+  "repository": "",
+  "bugs": {
+    "url": "https://github.com/theKashey/react-style-singleton/issues"
+  },
+  "homepage": "https://github.com/theKashey/react-style-singleton#readme",
+  "author": "Anton Korzunov (thekashey@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-react-toolbox": "^0.1.10"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0"
+  },
+  "keywords": [
+  ],
+  "dependencies": {
+    "@types/invariant": "^2.2.29",
+    "invariant": "^2.2.4"
+  },
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "1 KB"
+    }
+  ]
+}
