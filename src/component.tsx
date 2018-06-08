@@ -8,8 +8,6 @@ export const styleSinglentone = () => {
   const sheet = stylesheetSinglentone();
 
   return class Sheet extends React.PureComponent<Props> {
-    sheet: HTMLStyleElement | null = null;
-
     componentDidMount() {
       sheet.add(this.props.styles);
     }
