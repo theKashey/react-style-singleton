@@ -31,8 +31,7 @@ export const stylesheetSinglentone = (): {
   return {
     add: style => {
       if (counter == 0) {
-        stylesheet = makeStyleTag();
-        if (stylesheet) {
+        if (stylesheet = makeStyleTag()) {
           injectStyles(stylesheet, style);
           insertStyleTag(stylesheet);
         }

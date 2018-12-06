@@ -21,7 +21,7 @@ class App extends Component<{}, { on: boolean }> {
           span { color: red; }
         `}/>
         }
-        <span onClick={this.click}>TEST</span>
+        <span onClick={this.click}>TEST {this.state.on ? 'RED' : 'GREEN'}</span>
       </div>
     )
   }
