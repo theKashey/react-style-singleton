@@ -1,4 +1,3 @@
-import {styleSinglentone} from './component'
-import {stylesheetSinglentone} from './singlentone';
-
-export {styleSinglentone, stylesheetSinglentone};
+export {styleSinglentone} from './component'
+export {stylesheetSinglentone} from './singlentone';
+export {getUseStyle} from './useStyle';
