@@ -1,6 +1,6 @@
 {
   "name": "react-style-singleton",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Just create a single stylesheet...",
   "main": "dist/es5/index.js",
   "types": "dist/es5/index.d.ts",
@@ -52,7 +52,10 @@
   "size-limit": [
     {
       "path": "dist/es5/index.js",
-      "ignore": ["react-dom", "tslib"],
+      "ignore": [
+        "react-dom",
+        "tslib"
+      ],
       "limit": "0.5 KB"
     }
   ]
