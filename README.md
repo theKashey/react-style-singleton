@@ -1,7 +1,7 @@
 react-style-singleton
 ====
 
-__400b__ with all dependencies, minified and gzipped
+__300b__ with all dependencies, minified and gzipped
 
 
 Creates a style component with internal _tracker_.

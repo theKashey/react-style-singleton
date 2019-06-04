@@ -51,11 +51,8 @@
   },
   "size-limit": [
     {
-      "path": "dist/es5/index.js",
-      "ignore": [
-        "react-dom",
-        "tslib"
-      ],
+      "path": "dist/es2015/index.js",
+
       "limit": "0.5 KB"
     }
   ]
