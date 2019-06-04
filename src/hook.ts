@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {stylesheetSinglentone} from "./singlentone";
+import {stylesheetSingleton} from "./singleton";
 
-export const getUseStyle = () => {
-  const sheet = stylesheetSinglentone();
+export const styleHookSingleton = () => {
+  const sheet = stylesheetSingleton();
   return (styles: string) => {
     React.useEffect(() => {
       sheet.add(styles);

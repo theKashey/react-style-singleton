@@ -1,31 +1,23 @@
 import * as React from 'react';
-import {Component} from 'react';
-import {styleSinglentone} from "../src";
+import {styleSingleton} from "../src";
 
+const Style = styleSingleton();
 
-const Style = styleSinglentone();
+const App = () => {
 
-class App extends Component<{}, { on: boolean }> {
-
-  state = {
-    on: true
-  }
-
-  click = () => this.setState(({on}) => ({on: !on}));
-
-  render() {
-    return (
-      <div>
-        {this.state.on &&
-        <Style styles={`
+  const [on, setOn] = React.useState(true);
+  const click = React.useCallback(() => setOn(!on), [on]);
+  return (
+    <div>
+      {on &&
+      <Style styles={`
           span { color: red; }
         `}/>
-        }
-        <span onClick={this.click}>TEST {this.state.on ? 'RED' : 'GREEN'}</span>
-      </div>
-    )
-  }
-}
+      }
+      <span onClick={click}>TEST {on ? 'RED' : 'GREEN'}</span>
+    </div>
+  )
+};
 
 export default () => (
   <div>

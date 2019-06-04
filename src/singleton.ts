@@ -22,7 +22,7 @@ function insertStyleTag(tag: HTMLStyleElement) {
   head.appendChild(tag);
 }
 
-export const stylesheetSinglentone = (): {
+export const stylesheetSingleton = (): {
   add: (style: string) => void,
   remove: () => void,
 } => {

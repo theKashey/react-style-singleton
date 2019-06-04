@@ -1,23 +1,15 @@
 import * as React from 'react';
-import {stylesheetSinglentone} from "./singlentone";
+import {styleHookSingleton} from "./hook";
 
 type Props = { styles: string };
 
-export const styleSinglentone = () => {
+export const styleSingleton = () => {
+  const useStyle = styleHookSingleton();
 
-  const sheet = stylesheetSinglentone();
+  const Sheet: React.FC<Props> = ({styles}) => {
+    useStyle(styles);
+    return null;
+  };
 
-  return class Sheet extends React.PureComponent<Props> {
-    componentDidMount() {
-      sheet.add(this.props.styles);
-    }
-
-    componentWillUnmount() {
-      sheet.remove();
-    }
-
-    render():null {
-      return null;
-    }
-  }
+  return Sheet;
 };

@@ -33,6 +33,9 @@
   "license": "MIT",
   "devDependencies": {
     "@types/invariant": "^2.2.29",
+    "@types/react": "^16.8.19",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "ts-react-toolbox": "^0.2.2"
   },
   "peerDependencies": {
@@ -49,7 +52,8 @@
   "size-limit": [
     {
       "path": "dist/es5/index.js",
-      "limit": "1 KB"
+      "ignore": ["react-dom", "tslib"],
+      "limit": "0.5 KB"
     }
   ]
 }

@@ -1,38 +1,41 @@
 react-style-singleton
 ====
 
-__0.5kb__ With all dependencies, minified and gzipped
+__400b__ with all dependencies, minified and gzipped
 
 
 Creates a style component with internal _tracker_.
+- Adds styles to the browser on the __first__ instance mount.
+- Removes after the __last__ instance unmount.
+- Thus helps you deliver styles you need to the customer, and clean up later.
+- Is not server-side rendering compatible!
 
-- Adds styles to the browser on the first instance mount.
-- Removes after last instance unmount.
-
-Thus - useful for a libraries, which want to bring some styles within, and cleanup after.
 
 # API
 
 ## Component
 
 ```js
-import {styleSinglentone} from 'react-style-singleton'
+import {styleSingleton} from 'react-style-singleton'
 
-const Style = styleSinglentone();
+const Style = styleSingleton();
 
-() => (
+export const App = () => (
   <Style styles={'body {color:red}'} />
-)
+);
 ```
 
 ## Hook
 
 ```js
-import {getUseStyle} from 'react-style-singleton';
-const useStyle = getUseStyle()
+import {styleHookSingleton} from 'react-style-singleton';
 
-export const App = () => (
+const useStyle = styleHookSingleton();
+const useAnotherStyle = styleHookSingleton();
+
+export const App = () => {
   useStyle('div {color:red}');
+  useAnotherStyle('body { background-color:red }');
   return (<div />);
-)
+}
 ```

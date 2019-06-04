@@ -1,3 +1,3 @@
-export {styleSinglentone} from './component'
-export {stylesheetSinglentone} from './singlentone';
-export {getUseStyle} from './useStyle';
+export {styleSingleton} from './component'
+export {stylesheetSingleton} from './singleton';
+export {styleHookSingleton} from './hook';
