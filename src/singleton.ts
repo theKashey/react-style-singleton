@@ -22,8 +22,8 @@ function insertStyleTag(tag: HTMLStyleElement) {
   head.appendChild(tag);
 }
 
-export const stylesheetSingleton = (): {
-  add: (style: string) => void,
+export const stylesheetSingleton = (style: string): {
+  add: () => void,
   remove: () => void,
 } => {
   let counter = 0;

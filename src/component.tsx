@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {styleHookSingleton} from "./hook";
+import {styleHookSingleton} from './hook';
 
-type Props = { styles: string };
+type Props = {};
 
-export const styleSingleton = () => {
-  const useStyle = styleHookSingleton();
+export const styleSingleton = (styles: string) => {
+  const useStyle = styleHookSingleton(styles);
 
-  const Sheet: React.FC<Props> = ({styles}) => {
-    useStyle(styles);
+  const Sheet: React.FC<Props> = () => {
+    useStyle();
     return null;
   };
 

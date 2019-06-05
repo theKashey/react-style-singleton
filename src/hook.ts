@@ -1,14 +1,12 @@
 import * as React from 'react';
-import {stylesheetSingleton} from "./singleton";
+import {stylesheetSingleton} from './singleton';
 
-export const styleHookSingleton = () => {
-  const sheet = stylesheetSingleton();
+export const styleHookSingleton = (styles) => {
+  const sheet = stylesheetSingleton(styles);
   return (styles: string) => {
     React.useEffect(() => {
-      sheet.add(styles);
-      return () => {
-        sheet.remove();
-      }
+      sheet.add();
+      return () => sheet.remove();
     }, [])
   }
 };
