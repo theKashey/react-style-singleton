@@ -1,6 +1,6 @@
 {
   "name": "react-style-singleton",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Just create a single stylesheet...",
   "main": "dist/es5/index.js",
   "types": "dist/es5/index.d.ts",
