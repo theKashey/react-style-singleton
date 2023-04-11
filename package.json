@@ -35,7 +35,6 @@
   "devDependencies": {
     "@theuiteam/lib-builder": "^0.1.4",
     "@size-limit/preset-small-lib": "^2.1.6",
-    "@types/invariant": "^2.2.29",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -55,8 +54,7 @@
   ],
   "dependencies": {
     "tslib": "^2.0.0",
-    "get-nonce": "^1.0.0",
-    "invariant": "^2.2.4"
+    "get-nonce": "^1.0.0"
   },
   "engines": {
     "node": ">=10"
