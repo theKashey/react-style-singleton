@@ -1,6 +1,7 @@
+// @deno-types="npm:@types/react@^18.2"
 import * as React from 'react';
 
-import { stylesheetSingleton } from './singleton';
+import { stylesheetSingleton } from './singleton.ts';
 
 /**
  * creates a style on demand

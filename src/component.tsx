@@ -1,6 +1,7 @@
+// @deno-types="npm:@types/react@^18.2"
 import * as React from 'react';
 
-import { styleHookSingleton } from './hook';
+import { styleHookSingleton } from './hook.ts';
 
 type Props = {
   /**
@@ -21,7 +22,7 @@ type Props = {
  * - styles are removed when the last instance is unmounted
  * - changing styles in runtime does nothing unless dynamic is set. But with multiple components that can lead to the undefined behavior
  */
-export const styleSingleton = () => {
+export const styleSingleton = (): React.FC<Props> => {
   const useStyle = styleHookSingleton();
 
   const Sheet: React.FC<Props> = ({ styles, dynamic }) => {
