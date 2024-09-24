@@ -2,10 +2,10 @@ import { getNonce } from 'get-nonce';
 
 type NullableStyle = HTMLStyleElement | null;
 
-function makeStyleTag(): NullableStyle {
-  if (!document) return null;
+function makeStyleTag(currentDocument: Document): NullableStyle {
+  if (!currentDocument) return null;
 
-  const tag = document.createElement('style');
+  const tag = currentDocument.createElement('style');
   tag.type = 'text/css';
 
   const nonce = getNonce();
@@ -23,39 +23,55 @@ function injectStyles(tag: HTMLStyleElement, css: string) {
     // @ts-ignore
     tag.styleSheet.cssText = css;
   } else {
-    tag.appendChild(document.createTextNode(css));
+    tag.appendChild(tag.ownerDocument.createTextNode(css));
   }
 }
 
 function insertStyleTag(tag: HTMLStyleElement): void {
-  const head = document.head || document.getElementsByTagName('head')[0];
+  const head = tag.ownerDocument.head || tag.ownerDocument.getElementsByTagName('head')[0];
   head.appendChild(tag);
 }
 
 export const stylesheetSingleton = (): {
-  add: (style: string) => void;
-  remove: () => void;
+  add: (style: string, currentWindow: Window) => void;
+  remove: (currentWindow: Window) => void;
 } => {
-  let counter = 0;
-  let stylesheet: NullableStyle = null;
+  const windowMap = new Map<Window, { counter: number; stylesheet: NullableStyle }>();
+
+  function getOrCreateEntry(currentWindow: Window) {
+    let entry = windowMap.get(currentWindow);
+
+    if (entry === undefined) {
+      entry = { counter: 0, stylesheet: null };
+      windowMap.set(currentWindow, entry);
+    }
+
+    return entry;
+  }
 
   return {
-    add: (style) => {
-      if (counter == 0) {
-        if ((stylesheet = makeStyleTag())) {
-          injectStyles(stylesheet, style);
-          insertStyleTag(stylesheet);
+    add: (style, currentWindow: Window) => {
+      const entry = getOrCreateEntry(currentWindow);
+      const currentDocument = currentWindow.document;
+
+      if (entry.counter == 0) {
+        if ((entry.stylesheet = makeStyleTag(currentDocument))) {
+          injectStyles(entry.stylesheet, style);
+          insertStyleTag(entry.stylesheet);
         }
       }
 
-      counter++;
+      entry.counter++;
     },
-    remove: () => {
-      counter--;
+    remove: (currentWindow: Window) => {
+      const entry = getOrCreateEntry(currentWindow);
 
-      if (!counter && stylesheet) {
-        stylesheet.parentNode && stylesheet.parentNode.removeChild(stylesheet);
-        stylesheet = null;
+      entry.counter--;
+
+      if (!entry.counter && entry.stylesheet) {
+        entry.stylesheet.parentNode && entry.stylesheet.parentNode.removeChild(entry.stylesheet);
+        entry.stylesheet = null;
+        windowMap.delete(currentWindow);
       }
     },
   };

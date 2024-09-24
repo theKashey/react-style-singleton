@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { stylesheetSingleton } from './singleton';
+import { useCurrentWindow } from './windowProvider';
 
 /**
  * creates a style on demand
@@ -29,11 +30,13 @@ export const styleHookSingleton = (): StyleSingletonHook => {
   const sheet = stylesheetSingleton();
 
   return (styles, isDynamic) => {
+    const currentWindow = useCurrentWindow();
+
     React.useEffect(() => {
-      sheet.add(styles);
+      sheet.add(styles, currentWindow);
 
       return () => {
-        sheet.remove();
+        sheet.remove(currentWindow);
       };
     }, [styles && isDynamic]);
   };
