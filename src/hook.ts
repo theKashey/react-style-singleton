@@ -1,4 +1,4 @@
-// @deno-types="npm:@types/react@^18.2.0"
+// @ts-types="npm:types-react@^19.0.0-rc"
 import * as React from 'react';
 
 import { stylesheetSingleton } from './singleton.ts';

@@ -1,21 +1,16 @@
 {
-    "name": "@bureaudouble-forks/react-style-singleton",
-    "version": "0.0.2",
-    "nodeModulesDir": false,
-    "compilerOptions": {
-      "noErrorTruncation": true,
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "dom.asynciterable",
-        "deno.ns"
-      ]
-    },
-    "imports": {
-      "react": "npm:react@^18.2.0"
-    },
-    "exports": {
-      ".": "./src/index.ts"
-    }
+  "name": "@bureaudouble-forks/react-style-singleton",
+  "version": "2.2.1-forks.2",
+  "nodeModulesDir": false,
+  "compilerOptions": {
+    "noErrorTruncation": true,
+    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
+  },
+  "imports": {
+    "@types/react": "npm:types-react@^19.0.0-rc",
+    "react": "npm:react@^19.0.0-rc"
+  },
+  "exports": {
+    ".": "./src/index.ts"
   }
-  
+}
