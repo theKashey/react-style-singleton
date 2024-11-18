@@ -1,3 +1,3 @@
-export {styleSingleton} from './component'
-export {stylesheetSingleton} from './singleton';
-export {styleHookSingleton} from './hook';
+export {styleSingleton} from './component.tsx'
+export {stylesheetSingleton} from './singleton.ts';
+export {styleHookSingleton} from './hook.ts';

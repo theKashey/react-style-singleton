@@ -1,18 +1,9 @@
-import { getNonce } from 'get-nonce';
-
 type NullableStyle = HTMLStyleElement | null;
 
 function makeStyleTag(): NullableStyle {
   if (!document) return null;
 
   const tag = document.createElement('style');
-  tag.type = 'text/css';
-
-  const nonce = getNonce();
-
-  if (nonce) {
-    tag.setAttribute('nonce', nonce);
-  }
 
   return tag;
 }

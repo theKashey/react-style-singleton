@@ -1,6 +1,7 @@
+// @ts-types="npm:types-react@^19.0.0-rc"
 import * as React from 'react';
 
-import { stylesheetSingleton } from './singleton';
+import { stylesheetSingleton } from './singleton.ts';
 
 /**
  * creates a style on demand
